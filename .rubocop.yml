@@ -1,0 +1,16 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  Include:
+    - Gemfile
+    - Rakefile
+  Exclude:
+    - vendor/**/*
+
+Documentation:
+  Enabled: false
+
+LineLength:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
