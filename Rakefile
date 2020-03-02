@@ -6,9 +6,12 @@ desc 'See you next week'
 task :see_you_next_week do
   today = Date.today
 
-  return if today.workday? && !HolidayJp.holiday?(today)
+  if today.workday? && !HolidayJp.holiday?(today)
+    puts "#{today} is workday"
+    next
+  end
 
-  ENV.select { |k, _| k =~ /^SLACK_API_TOKEN_/ }.values.each do |token|
+  ENV.select { |k, _| k =~ /^SLACK_API_TOKEN_/ }.each do |env, token|
     Slack.configure do |config|
       config.token = token
     end
@@ -18,6 +21,12 @@ task :see_you_next_week do
     beginning_of_tomorrow = (now + 1.day).beginning_of_day
     num_minutes = ((beginning_of_tomorrow - now) / 1.minute).to_i
 
-    client.dnd_setSnooze(num_minutes: num_minutes)
+    begin
+      result = client.dnd_setSnooze(num_minutes: num_minutes)
+
+      puts "#{env} #{result}"
+    rescue => e # rubocop:disable Style/RescueStandardError
+      puts "#{env} #{e}"
+    end
   end
 end
