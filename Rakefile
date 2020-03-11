@@ -2,8 +2,8 @@ require 'bundler/setup'
 
 Bundler.require
 
-desc 'See you next week'
-task :see_you_next_week do
+desc 'また来週'
+task :mata_raishu do
   today = Date.today
 
   if today.workday? && !HolidayJp.holiday?(today)

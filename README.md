@@ -1,4 +1,6 @@
-## see-you-next-week
+## mata-raishu
+
+また来週
 
 ### References
 
@@ -14,4 +16,4 @@ $ heroku addons:create scheduler:standard
 $ heroku addons:open scheduler
 ```
 
-![heroku_scheduler_setting.jpg](https://raw.githubusercontent.com/hico-horiuchi/see-you-next-week/master/heroku_scheduler_setting.jpg)
+![heroku_scheduler_setting.jpg](https://raw.githubusercontent.com/hico-horiuchi/mata-raishu/master/heroku_scheduler_setting.jpg)
