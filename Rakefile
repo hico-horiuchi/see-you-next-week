@@ -19,7 +19,7 @@ task :mata_raishu do
     client = Slack::Web::Client.new
     now = Time.now
     beginning_of_tomorrow = (now + 1.day).beginning_of_day
-    num_minutes = ((beginning_of_tomorrow - now) / 1.minute).to_i
+    num_minutes = ((beginning_of_tomorrow - now) / 1.minute).ceil
 
     begin
       result = client.dnd_setSnooze(num_minutes: num_minutes)
